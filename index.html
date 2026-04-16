@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.A Fashion | Ayute Akito Couture Cameroon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,800;1,400&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1a1a1a; scroll-behavior: smooth; }
+        h1, h2, h3, .fashion-font { font-family: 'Bodoni Moda', serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #f1f1f1; }
+        .lookbook-item { cursor: pointer; transition: 0.5s; border-radius: 4px; overflow: hidden; }
+        .lookbook-item:hover { transform: translateY(-8px); }
+        .lookbook-item.active { outline: 2px solid #1a1a1a; outline-offset: 4px; background: #fafafa; }
+        .vertical-text { writing-mode: vertical-rl; text-orientation: mixed; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 glass-nav px-8 lg:px-20 py-6 flex justify-between items-center">
+        <div class="text-3xl font-bold tracking-tighter fashion-font">A.A <span class="font-light text-stone-300 italic">Fashion</span></div>
+        <div class="hidden lg:flex space-x-12 text-[10px] font-bold uppercase tracking-[0.4em] text-stone-400">
+            <a href="#about" class="hover:text-black transition">Atelier</a>
+            <a href="#collection" class="hover:text-black transition">Lookbook</a>
+            <a href="#booking" class="hover:text-black transition">Inquiry</a>
+        </div>
+        <a href="https://wa.me/237676260902" class="bg-black text-white px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-xl hover:bg-stone-800 transition">Book a Fitting</a>
+    </nav>
+
+    <header class="h-screen relative flex items-center justify-center bg-[#fdfdfd] overflow-hidden">
+        <div class="text-center z-10">
+            <p class="uppercase tracking-[0.8em] text-[9px] mb-8 font-semibold text-stone-400">Ayute Akito Fashion House</p>
+            <h1 class="text-7xl lg:text-[11rem] italic leading-none mb-12 fashion-font">A.A Couture</h1>
+            <div class="flex justify-center gap-8 items-center">
+                <div class="h-[1px] w-12 bg-stone-300"></div>
+                <a href="#collection" class="text-[10px] font-bold uppercase tracking-[0.3em]">Spring / Summer 26</a>
+                <div class="h-[1px] w-12 bg-stone-300"></div>
+            </div>
+        </div>
+        <div class="absolute right-10 bottom-10 vertical-text text-stone-200 uppercase tracking-widest text-[9px]">Douala • Cameroon • Atelier</div>
+    </header>
+
+    <section id="collection" class="py-32 px-8 lg:px-20">
+        <div class="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
+            <h2 class="text-6xl fashion-font italic">The Collection</h2>
+            <p class="text-stone-400 uppercase tracking-widest text-[10px] lg:text-right max-w-xs leading-loose">
+                Select your desired pieces for a bespoke tailoring consultation.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="lookbook-item" onclick="toggleSelection('Bespoke Embroidered Suit', 85000, this)">
+                <div class="aspect-[3/4] bg-stone-100 mb-8">
+                    <img src="images/piece1.jpg" class="w-full h-full object-cover" alt="Piece 1">
+                </div>
+                <div class="flex justify-between items-baseline px-2">
+                    <h3 class="fashion-font text-2xl italic">Embroidered Suit</h3>
+                    <p class="font-light text-stone-500 text-sm">85,000 CFA</p>
+                </div>
+            </div>
+
+            <div class="lookbook-item" onclick="toggleSelection('A.A Signature Silk Dress', 65000, this)">
+                <div class="aspect-[3/4] bg-stone-100 mb-8">
+                    <img src="images/piece2.jpg" class="w-full h-full object-cover" alt="Piece 2">
+                </div>
+                <div class="flex justify-between items-baseline px-2">
+                    <h3 class="fashion-font text-2xl italic">Signature Silk</h3>
+                    <p class="font-light text-stone-500 text-sm">65,000 CFA</p>
+                </div>
+            </div>
+
+            <div class="lookbook-item" onclick="toggleSelection('Hand-Woven Vest', 40000, this)">
+                <div class="aspect-[3/4] bg-stone-100 mb-8">
+                    <img src="images/piece3.jpg" class="w-full h-full object-cover" alt="Piece 3">
+                </div>
+                <div class="flex justify-between items-baseline px-2">
+                    <h3 class="fashion-font text-2xl italic">Woven Vest</h3>
+                    <p class="font-light text-stone-500 text-sm">40,000 CFA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="py-32 bg-stone-50 border-y border-stone-100">
+        <div class="max-w-3xl mx-auto text-center px-8">
+            <span class="text-stone-400 uppercase tracking-[0.5em] text-[9px] mb-8 block">Your Boutique Selection</span>
+            <div id="selection-list" class="text-left mb-12 space-y-6">
+                <p class="text-stone-300 italic text-center text-sm">The fitting room is empty.</p>
+            </div>
+            <div class="border-t border-stone-200 pt-10 mb-16">
+                <p id="total-price" class="text-6xl fashion-font italic">0 CFA</p>
+                <div class="mt-4 flex justify-center gap-6 text-stone-400 text-xs">
+                    <p>€ <span id="total-eur">0.00</span></p>
+                    <p>$ <span id="total-usd">0.00</span></p>
+                </div>
+            </div>
+            <button onclick="sendBooking()" class="bg-black text-white px-20 py-8 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-2xl hover:scale-105 transition">Initialize Order</button>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center">
+        <div class="text-2xl font-bold fashion-font italic mb-8 uppercase">A.A Fashion</div>
+        <p class="text-[9px] text-stone-300 uppercase tracking-[0.6em]">© 2026 Ayute Akito Couture | Engineered by Frank Fru</p>
+    </footer>
+
+    <script>
+        let selection = [];
+        
+        function toggleSelection(name, price, element) {
+            const index = selection.findIndex(item => item.name === name);
+            if (index > -1) {
+                selection.splice(index, 1);
+                element.classList.remove('active');
+            } else {
+                selection.push({ name, price });
+                element.classList.add('active');
+            }
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            const list = document.getElementById('selection-list');
+            const total = selection.reduce((sum, item) => sum + item.price, 0);
+            
+            if (selection.length === 0) {
+                list.innerHTML = `<p class="text-stone-300 italic text-center text-sm">The fitting room is empty.</p>`;
+            } else {
+                list.innerHTML = selection.map(item => `
+                    <div class="flex justify-between items-center border-b border-stone-200 pb-3">
+                        <span class="fashion-font italic text-xl">${item.name}</span>
+                        <span class="font-bold text-stone-800">${item.price.toLocaleString()} CFA</span>
+                    </div>
+                `).join('');
+            }
+            document.getElementById('total-price').innerText = total.toLocaleString() + " CFA";
+            document.getElementById('total-eur').innerText = (total / 655.95).toFixed(2);
+            document.getElementById('total-usd').innerText = (total / 610).toFixed(2);
+        }
+
+        function sendBooking() {
+            if (selection.length === 0) { alert("Please select a couture piece first."); return; }
+            const items = selection.map(i => i.name).join(', ');
+            const message = `Hello A.A Fashion, I would like to book a consultation for the following pieces: ${items}. Total estimate: ${document.getElementById('total-price').innerText}.`;
+            window.open(`https://wa.me/237676260902?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
+</body>
+</html>

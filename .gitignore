@@ -1,0 +1,7 @@
+.terraform/
+*.exe
+terraform-provider-*
+.terraform/
+terraform-provider-*
+*.exe
+.env
