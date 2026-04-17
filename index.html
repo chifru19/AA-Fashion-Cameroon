@@ -105,8 +105,40 @@
         </div>
     </section>
 
-    <footer class="py-12 border-t border-stone-100 text-center text-[9px] uppercase tracking-[0.4em] text-stone-400">
-        © 2026 Ayute Akito Couture | Engineered by Frank Fru
+    <section id="feedback" class="py-24 bg-stone-50 px-6 border-t border-stone-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl fashion-font italic">Atelier Feedback</h2>
+                <p class="text-stone-400 text-[10px] uppercase tracking-[0.4em] mt-2">Sign in with GitHub to leave a testimonial</p>
+            </div>
+            
+            <script src="https://giscus.app/client.js"
+                    data-repo="chifru19/AA-Fashion-Cameroon"
+                    data-repo-id="R_kgDON7u79w"
+                    data-category="Announcements"
+                    data-category-id="DIC_kwDON7u7984Ck-mS"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="top"
+                    data-theme="light"
+                    data-lang="en"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-stone-100 text-center">
+        <div class="flex justify-center space-x-6 mb-6 text-[10px] uppercase tracking-widest text-stone-500">
+            <a href="https://github.com/chifru19" class="hover:text-black transition">GitHub</a>
+            <a href="https://frankfru.com" class="hover:text-black transition">Portfolio</a>
+            <a href="https://linkedin.com/in/frankfru" class="hover:text-black transition">LinkedIn</a>
+        </div>
+        <p class="text-[9px] uppercase tracking-[0.4em] text-stone-400">
+            © 2026 Ayute Akito Couture | Engineered by Frank Fru
+        </p>
     </footer>
 
     <script>
@@ -149,7 +181,6 @@
             if(selection.length === 0) return alert("Please select a couture piece first!");
             const items = selection.map(i => i.name).join(', ');
             const total = document.getElementById('total-cfa').innerText;
-            // UPDATED NUMBER IN JAVASCRIPT
             const msg = `Hello A.A Fashion, I'm interested in: ${items}. Total estimate: ${total}.`;
             window.open(`https://wa.me/237677412738?text=${encodeURIComponent(msg)}`, '_blank');
         }
